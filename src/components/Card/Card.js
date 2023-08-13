@@ -9,7 +9,6 @@ const StyledCard = styled.div `
 `
 
 const Card = ({pokemons}) => {
-    console.log("cards " + pokemons.length)
     return(
         <>
                 {pokemons.map( (pokemon, index) => {
