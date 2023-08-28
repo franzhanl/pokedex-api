@@ -11,6 +11,9 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 const StyledMain = styled.div`
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px 0;
     width: 1000px;
 `;
 
@@ -57,7 +60,6 @@ const Main = () => {
     }, [apiUrl])
 
     return(
-        // console.log("pokemonData " + pokemonData.length),
         <>
             <StyledMain style={{backgroundColor: theme.background}}>
                 <Card pokemons={pokemonData} />
