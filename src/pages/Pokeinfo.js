@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import { FadeLoader } from "react-spinners";
+import { Card } from "../components/Card/Card";
 
 const StyledContainer = styled.div`
     display: flex;
@@ -20,18 +21,13 @@ const StyledInfo = styled.div`
 const StyledPokemon = styled.div`
     align-content: center;
     background-color: rgb(240, 240, 240);
-`
-const StyledNumber = styled.div`
-    background-color: rgb(210, 210, 210);
-`
-const StyledImg = styled.img`
-    width: 200px;
-    background-color: rgb(240, 240, 240);
+    text-transform: capitalize;
 `
 const StyledAbilities = styled.div`
     background-color: rgb(240, 240, 240);
     margin-left: 30px;
     border-radius: 7px;
+    text-transform: capitalize;
 `
 const StyledMoves = styled.ul`
     display: flex;
@@ -48,7 +44,6 @@ const StyledLi = styled.li`
 `
 
 const Pokemon = () => {
-
     const [pokemon, setPokemon] = useState([])
     const [ability, setAbility]= useState([])
     const [loading, setLoading] = useState(true)
@@ -70,34 +65,30 @@ const Pokemon = () => {
             await fetchPokeData(id).then( (result) => { 
                 setPokemon(result)   
                 result.abilities.map( (pokeAbility) => { 
-                    fetchPokeAbilitiesDescription(pokeAbility.ability.url).then( 
-                        (result) => setAbility( (state) => { 
-                            state = [ ...state, result]
-                            return state
-                        }) 
+                    return(
+                        fetchPokeAbilitiesDescription(pokeAbility.ability.url).then( 
+                            (result) => setAbility( (state) => { 
+                                state = [ ...state, result]
+                                return state
+                            }) 
                         )
-                 } )                                                         
-                
+                    )   
+                })                                                         
                 setLoading(false) 
-            } )     
-            
+            })     
         }
-
         fetchData()
-    }, [])
+    }, [id])
 
     return ( 
         <div>
-          { loading ? (
+            {loading ? (
                 <FadeLoader color="#36D7B7" loading={loading} />
             ) : (
                 <StyledContainer>
-
                     <StyledInfo>
                         <StyledPokemon>
-                            <StyledNumber>0000</StyledNumber> 
-                            <StyledImg src={pokemon.sprites.front_default} />
-                            <h2> {pokemon.name} </h2>
+                            <Card pokemon={pokemon} />
                         </StyledPokemon>
                         <StyledAbilities> 
                             <h2>Abilities</h2>
@@ -111,23 +102,16 @@ const Pokemon = () => {
                             })} 
                         </StyledAbilities>
                     </StyledInfo>
-                    
+
                     <h2>Moves</h2>
                     <StyledMoves> 
                         { pokemon.moves.map( (moves, index) => {
                             return <StyledLi key={index}> {moves.move.name} </StyledLi>
                         })}  
-                    </StyledMoves>  
-
+                    </StyledMoves> 
                 </StyledContainer>
-                
-            )
-          }
-               
-            
-           
-        </div>
-         
+            )}  
+        </div>    
     )
 }
 

@@ -1,15 +1,22 @@
-import './App.css';
-import { Main } from './components/Main/Main';
 import { ThemeProvider } from './contexts/ThemeContext';
-import { ThemeTogglerButton } from './components/ThemeTogglerButton/ThemeTogglerButton';
+import { Header } from './components/Header/Header'
 import { AppRoutes } from './pages/routes';
+import { styled } from 'styled-components';
 
+const StyledContainer = styled.div`
+    display: flex;    
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+`
 
 function App() {
   return (
     <ThemeProvider>
-      <ThemeTogglerButton />
-      <AppRoutes />
+      <StyledContainer>
+          <Header/>
+          <AppRoutes />
+      </StyledContainer>
     </ThemeProvider>
   );
 }
