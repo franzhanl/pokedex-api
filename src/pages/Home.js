@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { Main } from "../components/Main/Main";
 import { SearchType } from "../components/SearchType/SearchType";
-import { styled } from "styled-components";
-
-const StyledContainer = styled.div`
-    width: 1000px;
-`
+import { StyledContainer } from "./HomeStyles";
 
 const Home = () => {
 
