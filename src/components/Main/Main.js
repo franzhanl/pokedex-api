@@ -1,9 +1,8 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useContext} from "react";
 import { Cards } from "../Cards/Cards";
 import { Button } from "../Button/Button"
 import { styled } from "styled-components";
 import { FadeLoader } from "react-spinners";
-import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 const StyledCards = styled.div`
@@ -101,7 +100,7 @@ const Main = ({selectedType}) => {
                 <FadeLoader color="#36D7B7" loading={loading} />           
             </StyledLoad>
             <StyledButton>
-                <Button onClick={ () => setQuantityPokesOnScreen(quantityPokesOnScreen + 10) }> Carregar mais </Button>
+                <Button onClick={ () => setQuantityPokesOnScreen(quantityPokesOnScreen + 10) }> Show more Pokémons </Button>
             </StyledButton>
         </main>
     )

@@ -2,12 +2,14 @@ import { createContext, useState } from "react";
 
 const themes = {
     light: {
-        color: '#000000',
-        background: '#ffffffff',
+        color: '#ffffff',
+        background: '#ffffff',
+        backgroundSwitchButton: 'rgb(183, 183, 183)',
     },
     dark: {
-        color: '#ffffff',
+        color: '#000000',
         background: 'rgb(180, 180, 180)',
+        backgroundSwitchButton: 'rgb(66, 66, 66)',
     }
 }
 

@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import { FadeLoader } from "react-spinners";
 import { Card } from "../components/Card/Card";
+import { ThemeContext } from "../contexts/ThemeContext";
+import { Button } from "../components/Button/Button";
 
 const StyledContainer = styled.div`
     display: flex;
@@ -10,7 +12,6 @@ const StyledContainer = styled.div`
     justify-content: center;
     text-align: center;
     width: 1000px;    
-    background-color: rgb(190, 190, 190);
 `
 const StyledInfo = styled.div`
     display: flex;
@@ -20,34 +21,46 @@ const StyledInfo = styled.div`
 `
 const StyledPokemon = styled.div`
     align-content: center;
-    background-color: rgb(240, 240, 240);
-    text-transform: capitalize;
 `
 const StyledAbilities = styled.div`
     background-color: rgb(240, 240, 240);
     margin-left: 30px;
     border-radius: 7px;
     text-transform: capitalize;
+    min-width: 690px;
+
+    p {
+        padding: 0 10px;
+    }
 `
 const StyledMoves = styled.ul`
     display: flex;
     flex-wrap: wrap;
+    margin-right: 40px;
     justify-content: center;
 `
 const StyledLi = styled.li`
     padding: 20px;
-    border: 1px solid grey;  
     margin: 20px;
     display: block;
     border-radius: 7px;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(240, 240, 240); 
+`
+const StyledLine = styled.hr`
+    width: 80%;
+`
+const StyledButton = styled.div`
+    display: flex;
+    justify-content: right;
+    padding: 0 30px 0 0;
 `
 
-const Pokemon = () => {
+const PokeInfo = () => {
     const [pokemon, setPokemon] = useState([])
     const [ability, setAbility]= useState([])
     const [loading, setLoading] = useState(true)
 
+    const { theme } = useContext(ThemeContext)
     const { id } = useParams()
 
     async function fetchPokeData(idPokemon){
@@ -85,13 +98,15 @@ const Pokemon = () => {
             {loading ? (
                 <FadeLoader color="#36D7B7" loading={loading} />
             ) : (
-                <StyledContainer>
+                <StyledContainer style={{backgroundColor: theme.background }}>
+                    
                     <StyledInfo>
                         <StyledPokemon>
                             <Card pokemon={pokemon} />
                         </StyledPokemon>
                         <StyledAbilities> 
                             <h2>Abilities</h2>
+                            <StyledLine></StyledLine>
                             { ability.map( (ability, index) => {
                                 return(
                                     <div key={index}>
@@ -103,7 +118,14 @@ const Pokemon = () => {
                         </StyledAbilities>
                     </StyledInfo>
 
+                    <StyledButton>
+                        <Link to={"/"}>
+                            <Button> Explore more Pokémons </Button>
+                        </Link> 
+                    </StyledButton>
+
                     <h2>Moves</h2>
+                    <StyledLine></StyledLine>
                     <StyledMoves> 
                         { pokemon.moves.map( (moves, index) => {
                             return <StyledLi key={index}> {moves.move.name} </StyledLi>
@@ -115,4 +137,4 @@ const Pokemon = () => {
     )
 }
 
-export { Pokemon }
+export { PokeInfo }
