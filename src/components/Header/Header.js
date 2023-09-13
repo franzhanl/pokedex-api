@@ -1,4 +1,3 @@
-import React from "react";
 import { ThemeTogglerButton } from "../ThemeTogglerButton/ThemeTogglerButton";
 import pokemonLogo from '../../assets/images/pokemon-logo.png';
 import { StyledHeader, StyledTitle, StyledNav } from './HeaderStyles';

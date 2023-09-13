@@ -1,4 +1,3 @@
-import React from "react";
 import { StyledDivRelative, StyledCard, StyledId, StyledImg, 
     StyledTypes, StyledNormal, StyledFighting, StyledFlying, StyledPoison,  
     StyledGround, StyledRock, StyledBug, StyledGhost, StyledSteel, StyledFire,

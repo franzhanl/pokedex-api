@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Main } from "../components/Main/Main";
+import { Pokemon } from '../components/Pokemon/Pokemon';
 import { SearchType } from "../components/SearchType/SearchType";
 import { StyledContainer } from "./HomeStyles";
 
@@ -10,7 +10,7 @@ const Home = () => {
     return(
         <StyledContainer>
             <SearchType setSelectedType={setSelectedType} />
-            <Main selectedType={selectedType} />
+            <Pokemon selectedType={selectedType} />
         </StyledContainer>
     )
 }

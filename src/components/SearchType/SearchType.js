@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyledType, StyledSelect, StyledOption } from './SearchTypeStyles';
+import { fetchTypes } from '../../services/type';
 
 const SearchType = ({setSelectedType}) => {
 
@@ -8,15 +9,6 @@ const SearchType = ({setSelectedType}) => {
     const handleSelectChange = (event) => {
         const selectedType = event.target.value
         setSelectedType(selectedType)
-    }
-
-    async function fetchTypes(){
-        try{
-            const resp = await fetch("https://pokeapi.co/api/v2/type/") 
-            return await resp.json()
-        }catch (error){
-            console.error("fetchTypes error: ", error)
-        }
     }
 
     async function getTypes(){
@@ -50,9 +42,7 @@ const SearchType = ({setSelectedType}) => {
             }
             <StyledSelect onChange={ (event) => handleSelectChange(event) } name="pokemons" id="cars">
                 <StyledOption value="">all</StyledOption>
-                {types.map( (type, index) => {
-                    return <StyledOption key={index} value={type}>{type}</StyledOption>
-                })}
+                {types.map( (type, index) => <StyledOption key={index} value={type}>{type}</StyledOption> )}
             </StyledSelect>                       
         </StyledType>
     )

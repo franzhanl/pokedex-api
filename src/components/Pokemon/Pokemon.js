@@ -3,10 +3,10 @@ import { Cards } from "../Cards/Cards";
 import { Button } from "../Button/Button";
 import { FadeLoader } from "react-spinners";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import { StyledCards, StyledButton, StyledLoad } from  './MainStyles';
+import { StyledCards, StyledButton, StyledLoad } from  './PokemonStyles';
+import { fetchAllPokemons, fetchPokemon } from "../../services/pokemon";
 
-const Main = ({selectedType}) => {
-    const [apiUrl, setApiUrl] = useState('https://pokeapi.co/api/v2/pokemon?limit=1281')
+const Pokemon = ({selectedType}) => {
     const [pokemonData, setPokemonData] = useState([])
     const [pokesOnScreen, setPokesOnScreen] = useState([])
     const [loading, setLoading] = useState(true)
@@ -16,24 +16,14 @@ const Main = ({selectedType}) => {
 
     async function setingResponsePokeData(){
         setLoading(true)
-        let resp = await fetchPokeData()
-        await getPokemon(resp.results)
+        let respJson = await fetchAllPokemons()
+        await getPokemon(respJson.results)
         setLoading(false)
-    }
-
-    async function fetchPokeData(){
-        try{
-            const resp = await fetch(apiUrl) 
-            return await resp.json()
-        }catch (error){
-            console.error("fetchPokeData error: ", error)
-        }
     }
 
     async function getPokemon(pokemons){
         pokemons.map( async (pokemon) => {
-            const resp = await fetch(pokemon.url)
-            const respJson = await resp.json()
+            const respJson = await fetchPokemon(pokemon.url)
             if (selectedType == ""){
                 setPokemonData( (state) => {
                     state=[...state, respJson] 
@@ -54,22 +44,19 @@ const Main = ({selectedType}) => {
         })
     }
 
-    useEffect( () => {
+    function cleanScreen() {
         setPokesOnScreen("")
         setPokemonData("")
         setQuantityPokesOnScreen(10)
+    }
 
-        async function fetchData(){
-            await setingResponsePokeData()
-        }
-
-        fetchData()
-        
+    useEffect( () => {
+        cleanScreen()
+        setingResponsePokeData()      
     }, [selectedType])
 
     useEffect( () => {
         setPokesOnScreen(pokemonData.slice(0, quantityPokesOnScreen))
-        
     }, [pokemonData, quantityPokesOnScreen])
 
     return(
@@ -81,10 +68,10 @@ const Main = ({selectedType}) => {
                 <FadeLoader color="#36D7B7" loading={loading} />           
             </StyledLoad>
             <StyledButton>
-                <Button onClick={ () => setQuantityPokesOnScreen(quantityPokesOnScreen + 10) }> Show more Pokémons </Button>
+            { !loading ? <Button onClick={ () => setQuantityPokesOnScreen(quantityPokesOnScreen + 10) }> Show more Pokémons </Button> : ("") }
             </StyledButton>
         </main>
     )
 }
 
-export { Main }
+export { Pokemon }
