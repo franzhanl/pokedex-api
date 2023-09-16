@@ -4,12 +4,11 @@ import { StyledDivRelative, StyledCard, StyledId, StyledImg,
     StyledWater, StyledGrass, StyledElectric, StyledPsychic, StyledIce, StyledDragon,
     StyledDark, StyledFairy } from "./CardStyles";
 
+function leadigZero(num, qty){ 
+    return String(num).padStart(qty, '0') 
+}  
+
 const Card = ({pokemon}) => {
-
-    function leadigZero(num, qty){ 
-        return String(num).padStart(qty, '0') 
-    }  
-
     return(
         <StyledDivRelative>
             <StyledCard>
@@ -50,4 +49,4 @@ const Card = ({pokemon}) => {
     )
 }
 
-export { Card }
+export { Card, leadigZero }

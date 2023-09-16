@@ -5,13 +5,20 @@ const StyledHeader = styled.header`
     display: flex;
     justify-content: center;
     width: 100%;
-    /* max-width: 1400px; */
     height: 70px;
 `
-const StyledTitle = styled.div`
+const StyledHeaderContent = styled.div`
     display: flex;
-    width: 850px;
     justify-content: space-between;
+    max-width: 850px;
+
+    @media (max-width: 1020px) {
+        width: 550px;
+    }  
+
+    @media (max-width: 600px) {
+        width: 330px;
+    }   
 `
 const StyledNav = styled.nav`
     display: flex;
@@ -20,4 +27,4 @@ const StyledNav = styled.nav`
     gap: 2px;
     align-items: center;
 `
-export { StyledHeader, StyledTitle, StyledNav }
+export { StyledHeader, StyledHeaderContent, StyledNav }

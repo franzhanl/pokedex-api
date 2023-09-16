@@ -35,6 +35,7 @@ const StyledFighting = styled.h4`
     padding: 3px 10px;
     border: 0;
     border-radius: 50px;
+    color: white;
 `
 const StyledFlying = styled.h4`
     background-color: rgb(54, 175, 228);
@@ -47,18 +48,21 @@ const StyledPoison = styled.h4`
     padding: 3px 10px;
     border: 0;
     border-radius: 50px;
+    color: white;
 `
 const StyledGround = styled.h4`
     background-color: rgb(107, 98, 64);
     padding: 3px 10px;
     border: 0;
     border-radius: 50px;
+    color: white;
 `
 const StyledRock = styled.h4`
     background-color: rgb(123, 83, 40);
     padding: 3px 10px;
     border: 0;
     border-radius: 50px;
+    color: white;
 `
 const StyledBug = styled.h4`
     background-color: rgb(195, 203, 46);
@@ -71,6 +75,7 @@ const StyledGhost = styled.h4`
     padding: 3px 10px;
     border: 0;
     border-radius: 50px;
+    color: white;
 `
 const StyledSteel = styled.h4`
     background-color: rgb(160, 168, 201);
@@ -89,12 +94,14 @@ const StyledWater = styled.h4`
     padding: 3px 10px;
     border: 0;
     border-radius: 50px;
+    color: white;
 `
 const StyledGrass = styled.h4`
     background-color: rgb(109, 229, 110);
     padding: 3px 10px;
     border: 0;
     border-radius: 50px;
+    
 `
 const StyledElectric = styled.h4`
     background-color: rgb(233, 232, 46);
@@ -107,6 +114,7 @@ const StyledPsychic = styled.h4`
     padding: 3px 10px;
     border: 0;
     border-radius: 50px;
+    color: white;
 `
 const StyledIce = styled.h4`
     background-color: rgb(173, 255, 255);
@@ -125,6 +133,7 @@ const StyledDark = styled.h4`
     padding: 3px 10px;
     border: 0;
     border-radius: 50px;
+    color: white;
 `
 const StyledFairy = styled.h4`
     background-color: rgb(255, 87, 254);

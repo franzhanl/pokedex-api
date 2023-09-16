@@ -4,9 +4,10 @@ import { FadeLoader } from "react-spinners";
 import { Card } from "../components/Card/Card";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { Button } from "../components/Button/Button";
+import { fetchPokeData, fetchPokeAbilitiesDescription } from "../services/poke-info";
 import { 
     StyledContainer, StyledInfo, StyledPokemon, StyledAbilities, 
-    StyledMoves, StyledLi, StyledLine, StyledButton
+    StyledMoves, StyledLi, StyledHr, StyledButton
 } from './PokeInfoStyles';
 
 const PokeInfo = () => {
@@ -17,17 +18,8 @@ const PokeInfo = () => {
     const { theme } = useContext(ThemeContext)
     const { id } = useParams()
 
-    async function fetchPokeData(idPokemon){
-        const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${idPokemon}`) 
-        return await resp.json()
-    }
-
-    async function fetchPokeAbilitiesDescription(url) {
-        const resp = await fetch(url)
-        return await resp.json()
-    }
-
     useEffect( () => {
+        window.scrollTo(0, 0);
         async function fetchData() {
             await fetchPokeData(id).then( (result) => { 
                 setPokemon(result)   
@@ -49,18 +41,14 @@ const PokeInfo = () => {
 
     return ( 
         <div>
-            {loading ? (
-                <FadeLoader color="#36D7B7" loading={loading} />
+            {loading ? ( <FadeLoader color="#36D7B7" loading={loading} />
             ) : (
                 <StyledContainer style={{backgroundColor: theme.background }}>
-                    
                     <StyledInfo>
-                        <StyledPokemon>
-                            <Card pokemon={pokemon} />
-                        </StyledPokemon>
+                        <StyledPokemon><Card pokemon={pokemon} /></StyledPokemon>
                         <StyledAbilities> 
                             <h2>Abilities</h2>
-                            <StyledLine></StyledLine>
+                            <StyledHr />
                             { ability.map( (ability, index) => {
                                 return(
                                     <div key={index}>
@@ -72,18 +60,12 @@ const PokeInfo = () => {
                         </StyledAbilities>
                     </StyledInfo>
 
-                    <StyledButton>
-                        <Link to={"/"}>
-                            <Button> Explore more Pokémons </Button>
-                        </Link> 
-                    </StyledButton>
+                    <StyledButton><Link to={"/"}><Button> Explore more Pokémons </Button></Link></StyledButton>
 
                     <h2>Moves</h2>
-                    <StyledLine></StyledLine>
+                    <StyledHr />
                     <StyledMoves> 
-                        { pokemon.moves.map( (moves, index) => {
-                            return <StyledLi key={index}> {moves.move.name} </StyledLi>
-                        })}  
+                        {pokemon.moves.map((moves, index) => <StyledLi key={index}>{moves.move.name}</StyledLi>)}  
                     </StyledMoves> 
                 </StyledContainer>
             )}  

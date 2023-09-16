@@ -61,14 +61,12 @@ const Pokemon = ({selectedType}) => {
 
     return(
         <main style={{backgroundColor: theme.background}}>
-            <StyledCards>
-                <Cards pokemons={pokesOnScreen} />
-            </StyledCards>
-            <StyledLoad>
-                <FadeLoader color="#36D7B7" loading={loading} />           
-            </StyledLoad>
+            <StyledCards><Cards pokemons={pokesOnScreen} /></StyledCards>
+            <StyledLoad><FadeLoader color="#36D7B7" loading={loading} /></StyledLoad>
             <StyledButton>
-            { !loading ? <Button onClick={ () => setQuantityPokesOnScreen(quantityPokesOnScreen + 10) }> Show more Pokémons </Button> : ("") }
+                {!loading ? <Button onClick={ () => setQuantityPokesOnScreen(quantityPokesOnScreen + 10) }>
+                    Show more Pokémons 
+                </Button> : ("") }
             </StyledButton>
         </main>
     )
