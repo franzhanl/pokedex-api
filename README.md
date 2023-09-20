@@ -13,10 +13,14 @@ This is a simple web application that utilizes the [PokeAPI](https://pokeapi.co/
 - Switch between Light and Dark themes for a better user experience.
 - Responsive design for a great user experience on both desktop and mobile devices.
 
-## Desktop
+## Website
+https://pokedex-api-portifolio.vercel.app/
 
-## Mobile
-<!-- ![414x736](src/assets/gifs/mobile-gif.gif) -->
+## Desktop 1920x1080
+![1920x1080](src/assets/gifs/desktop.gif)
+
+## Mobile 414x736
+![414x736](src/assets/gifs/mobile.gif)
 
 ## Getting Started
 
