@@ -33,7 +33,7 @@ To get started with this project, follow these steps:
 2. Install the dependencies:
 
     ```bash
-    cd pokedex-web-app
+    cd pokedex-api
     npm install
 3. Start the development server:
 
