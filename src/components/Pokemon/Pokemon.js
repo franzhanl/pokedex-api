@@ -21,26 +21,30 @@ const Pokemon = ({selectedType}) => {
         setLoading(false)
     }
 
+    function filterPokemonsByType(newData){
+        if (selectedType == ""){
+            setPokemonData( (state) => {
+                state=[...state, newData] 
+                state.sort((a, b) => a.id - b.id)
+                return state
+            })
+        }else{
+            newData.types.map( (types) => {
+                if (types.type.name == selectedType){
+                    setPokemonData( (state) => {
+                        state=[...state, newData] 
+                        state.sort((a, b) => a.id - b.id)
+                        return state
+                    })
+                }
+            })
+        }
+    }
+
     async function getPokemon(pokemons){
         pokemons.map( async (pokemon) => {
             const respJson = await fetchPokemon(pokemon.url)
-            if (selectedType == ""){
-                setPokemonData( (state) => {
-                    state=[...state, respJson] 
-                    state.sort((a, b) => a.id - b.id)
-                    return state
-                })
-            }else{
-                respJson.types.map( (types) => {
-                    if (types.type.name == selectedType){
-                        setPokemonData( (state) => {
-                            state=[...state, respJson] 
-                            state.sort((a, b) => a.id - b.id)
-                            return state
-                        })
-                    }
-                })
-            }            
+            filterPokemonsByType(respJson)
         })
     }
 
@@ -52,7 +56,7 @@ const Pokemon = ({selectedType}) => {
 
     useEffect( () => {
         cleanScreen()
-        setingResponsePokeData()      
+        setingResponsePokeData() 
     }, [selectedType])
 
     useEffect( () => {
