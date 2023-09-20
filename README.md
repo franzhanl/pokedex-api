@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Pokédex Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This is a simple web application that utilizes the [PokeAPI](https://pokeapi.co/) to display a list of Pokémon on the home page. Initially, it lists 10 Pokémon, and with each click on the button, it loads an additional 10 Pokémon. The application also provides detailed information about each Pokémon on a separate page. Users can browse through the Pokémon list and click on individual Pokémon to view their details. Additionally, there is a filter at the top of the system that allows users to filter Pokémons by type.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- List all the Pokémon in groups of 10 on the home page.
+- You can load 10 more Pokémons by clicking the button on home page.
+- Clicking on a Pokémon's image takes you to a dedicated page with more information about that Pokémon.
+- Search functionality to find Pokémons by type.
+- Switch between Light and Dark themes for a better user experience.
+- Responsive design for a great user experience on both desktop and mobile devices.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Desktop
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Mobile
+<!-- ![414x736](src/assets/gifs/mobile-gif.gif) -->
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To get started with this project, follow these steps:
 
-### `npm run build`
+1. Clone the repository:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   git clone https://github.com/franzhanl/pokedex-api.git
+2. Install the dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```bash
+    cd pokedex-web-app
+    npm install
+3. Start the development server:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    ```bash
+    npm start
+4. Open your web browser and go to http://localhost:3000 to view the app.
 
-### `npm run eject`
+## Usage
+ - On the home page, you'll see a list of 10 Pokémon. Click on any Pokémon to see more details.
+ - There is a button on the home page where you can load 10 more Pokémons.
+ - You can also use the select box at the top to find Pokémons by type.
+ - Switch between Light and Dark themes for a better user experience.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Technologies Used
+ - React.js for building the user interface.
+ - Styled Components for style the appearance.
+ - React Router for navigation between pages.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributing
+Contributions are welcome! If you'd like to contribute to this project, please follow these guidelines:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Fork the repository.
+2. Create a new branch for your feature: git checkout -b feature-name.
+3. Make your changes and commit them: git commit -m "Add new feature".
+4. Push your changes to your fork: git push origin feature-name.
+5. Create a pull request.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Regarding the development
+This project was a lot of fun, and it allowed me to practice many of the things I've learned about frontend development, such as folder organization, creating React components, handling API requests, data filtering, clean code, and it also reinforced my knowledge of JavaScript and CSS.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Acknowledgments
+ - Thanks to the creators of PokeAPI for providing the Pokémon data.
+ - Inspiration for this project came from a quest provided by Dev em Dobro. d(^o^)b
