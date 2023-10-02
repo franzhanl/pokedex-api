@@ -14,7 +14,7 @@ This is a simple web application that utilizes the [PokeAPI](https://pokeapi.co/
 - Responsive design for a great user experience on both desktop and mobile devices.
 
 ## Website
-https://pokedex-api-portfolio.vercel.app/
+https://pokedex-api-franz.vercel.app/
 
 ## Desktop 1920x1080
 ![1920x1080](src/assets/gifs/desktop.gif)
